@@ -1,0 +1,13 @@
+<h3 class="mat-h3">Name</h3>
+<p class="mat-body">{{problem.name}}</p>
+
+<h3 class="mat-h3">Statement</h3>
+<ng-katex-paragraph [paragraph]="problem.statement"></ng-katex-paragraph>
+
+<h3 class="mat-h3">Tags</h3>
+<mat-chip-list>
+  <mat-chip color="primary" class="mat-chip-category"
+            *ngFor="let tag of problem.tags">
+    {{tag}}
+  </mat-chip>
+</mat-chip-list>
