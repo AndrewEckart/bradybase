@@ -3,9 +3,10 @@
              fxLayoutAlign="space-between center"
              fxFlex="1 1 auto">
 
-  <button mat-icon-button (click)="toggleSidenav()" color="accent">
-    <mat-icon *ngIf="!sidenavService.nav?.opened">menu</mat-icon>
-    <mat-icon *ngIf="sidenavService.nav?.opened">close</mat-icon>
+  <button mat-icon-button (click)="toggleSidenav()" color="accent"
+          *ngIf="sidenavService.nav$ | async as nav">
+    <mat-icon *ngIf="!nav.opened">menu</mat-icon>
+    <mat-icon *ngIf="nav.opened">close</mat-icon>
   </button>
 
   <img [src]="logoURL" alt="UChicago" style="height: 48px">

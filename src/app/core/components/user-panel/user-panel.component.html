@@ -6,11 +6,11 @@
       <mat-card-title>{{user?.name}}</mat-card-title>
       <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
     </mat-card-header>
+
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="signOut()" color="primary">SIGN OUT</button>
+    </mat-card-actions>
   </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-button (click)="signOut()">SIGN OUT</button>
-  </mat-card-actions>
-
 
 </mat-card>

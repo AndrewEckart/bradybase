@@ -28,6 +28,7 @@ export class HomeComponent extends AsyncComponent implements OnInit, AfterViewIn
 
   ngAfterViewInit() {
     this.sidenavService.nav = this.sidenav;
+    this.sidenavService.nav$.next(this.sidenav);
   }
 
   observeMedia() {

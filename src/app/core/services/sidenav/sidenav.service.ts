@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {MatSidenav} from '@angular/material';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class SidenavService {
+  public nav$: BehaviorSubject<MatSidenav> = new BehaviorSubject<MatSidenav>(null);
   public nav: MatSidenav;
 
   constructor() { }
