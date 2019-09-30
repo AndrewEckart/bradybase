@@ -2,25 +2,43 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProblemComponent } from './problem/problem.component';
-import { ViewProblemComponent } from './problem/view-problem/view-problem.component';
-import { EditProblemComponent } from './problem/edit-problem/edit-problem.component';
-import { CardComponent } from './layout/card/card.component';
+import { ProblemComponent } from './problem/problem/problem.component';
+import { ViewProblemComponent } from './problem/problem/view-problem/view-problem.component';
+import { EditProblemComponent } from './problem/problem/edit-problem/edit-problem.component';
+import { CardComponent } from './shared/components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatCheckboxModule,
   MatChipsModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule
+  MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule, MatSnackBarModule, MatSortModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {LetDirective} from './directives/let/let.directive';
+import {LetDirective} from './shared/directives/let/let.directive';
 import {ReactiveFormsModule} from '@angular/forms';
 import {KatexModule} from 'ng-katex';
-import { ChipListComponent } from './forms/chip-list/chip-list.component';
+import { ChipListComponent } from './shared/components/chip-list/chip-list.component';
+import { LoginComponent } from './core/components/login/login.component';
+import {AuthService} from './core/services/auth/auth.service';
+import {AuthGuard} from './core/guards/auth/auth.guard';
+import { HeaderComponent } from './core/components/header/header.component';
+import { NewProblemComponent } from './problem/new-problem/new-problem.component';
+import { ProblemsListComponent } from './problem/problems-list/problems-list.component';
+import {AppRoutingModule} from './app-routing.module';
+import { SplashComponent } from './core/components/splash/splash.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {environment} from '../environments/environment';
+import {DatabaseService} from './core/services/database/database.service';
+import { HomeComponent } from './core/components/home/home.component';
+import {SidenavService} from './core/services/sidenav/sidenav.service';
+import { UserPhotoComponent } from './shared/components/user-photo/user-photo.component';
+import { UserPanelComponent } from './core/components/user-panel/user-panel.component';
+import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -31,23 +49,49 @@ import { ChipListComponent } from './forms/chip-list/chip-list.component';
     EditProblemComponent,
     CardComponent,
     LetDirective,
-    ChipListComponent
+    ChipListComponent,
+    LoginComponent,
+    HeaderComponent,
+    NewProblemComponent,
+    ProblemsListComponent,
+    SplashComponent,
+    HomeComponent,
+    UserPhotoComponent,
+    UserPanelComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MatCheckboxModule,
     MatChipsModule,
-    MatAutocompleteModule,
-    KatexModule
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatSortModule,
+    KatexModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    DatabaseService,
+    SidenavService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

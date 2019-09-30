@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav>
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content [ngStyle]="{'min-height': 'calc(100vh - ' + toolbarHeight + 'px)'}">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

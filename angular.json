@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/theme.scss"
+              "src/styles/styles.scss",
+              "src/styles/theme.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -134,5 +139,10 @@
       }
     }
   },
-  "defaultProject": "bradybase"
+  "defaultProject": "bradybase",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

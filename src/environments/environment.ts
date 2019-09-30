@@ -2,8 +2,19 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// noinspection SpellCheckingInspection
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCJ3umq7-HwauVxfFggvY4EsHZYxQceTuE',
+    authDomain: 'brady-base.firebaseapp.com',
+    databaseURL: 'https://brady-base.firebaseio.com',
+    projectId: 'brady-base',
+    storageBucket: '',
+    messagingSenderId: '396720342282',
+    appId: '1:396720342282:web:2cc3ae0371a561c4a566f3',
+    measurementId: 'G-2N8VEJPG67'
+  }
 };
 
 /*

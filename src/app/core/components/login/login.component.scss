@@ -1,0 +1,23 @@
+@import "variables.scss";
+
+.google-oauth-button {
+  width: 300px;
+  height: 60px;
+  background-color: white;
+  color: $black-54;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid $black-12;
+  border-radius: 5px;
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('/assets/google-icon.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 16px;
+  top: calc(50% - 12px);
+}
+}

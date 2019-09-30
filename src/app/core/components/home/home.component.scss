@@ -1,0 +1,16 @@
+@import 'variables.scss';
+
+mat-sidenav-container {
+
+  mat-sidenav {
+    background-color: white;
+    min-width: 250px;
+  }
+
+  mat-sidenav-content {
+    background-color: $uc-light-gray;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+  }
+}

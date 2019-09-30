@@ -1,0 +1,17 @@
+mat-card {
+  max-width: 375px;
+  position: absolute;
+  right: 4px;
+  top: 68px;
+  z-index: 20;
+}
+
+mat-card-title {
+  margin-bottom: 8px;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

@@ -1,0 +1,35 @@
+@import 'variables';
+
+.sidenav-link {
+  &.active {
+    background-color: $uc-light-gray;
+  }
+}
+
+//.sidenav-link {
+//  outline: none;
+//  text-decoration: none;
+//  mat-list-item {
+//    color: $black-54;
+//    &:hover {
+//      background: $black-5;
+//    }
+//  }
+//  &.active {
+//    color: $uc-m;
+//  }
+//  &:focus {
+//    mat-list-item {
+//      background: $uc-light-gray;
+//    }
+//  }
+//}
+//
+//:host ::ng-deep .mat-list-text {
+//  div {
+//    align-items: flex-start;
+//    flex-direction: column;
+//    height: 48px;
+//    justify-content: center;
+//  }
+//}
