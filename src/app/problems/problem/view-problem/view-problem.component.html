@@ -7,7 +7,8 @@
 
   <div>
     <h3 class="mat-h3">History</h3>
-    <table mat-table [dataSource]="dataSource" style="width: 100%">
+    <table mat-table [dataSource]="dataSource" style="width: 100%" 
+           *ngIf="problem.records?.length; else noHistory">
 
       <!-- Course Column -->
       <ng-container matColumnDef="course">
@@ -46,16 +47,25 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
+
+    <ng-template #noHistory>
+      <div>No recorded uses.</div>
+    </ng-template>
+    
   </div>
 
   <div>
     <h3 class="mat-h3">Tags</h3>
-    <mat-chip-list>
+    <mat-chip-list *ngIf="problem.tags?.length; else noTags">
       <mat-chip color="primary" class="mat-chip-category"
                 *ngFor="let tag of problem.tags">
         {{tag}}
       </mat-chip>
     </mat-chip-list>
+
+    <ng-template #noTags>
+      <div>No tags.</div>
+    </ng-template>
   </div>
 
 </div>
