@@ -1,7 +1,8 @@
 <mat-card *ngIf="visible"
           [ngStyle]="{ 'margin': '0 ' + horizMargin + 'px ' + bottomMargin + 'px'}"
           [class.bg-dark]="dark"
-          [ngStyle.lt-md]="{'width':  widths.sm + 'px'}"
+          [ngStyle.xs]="{'width': widths.xs + 'px'}"
+          [ngStyle.sm]="{'width':  widths.sm + 'px'}"
           [ngStyle.md]="{'width': widths.md + 'px'}"
           [ngStyle.gt-md]="{'width': widths.lg + 'px'}">
   <ng-content></ng-content>

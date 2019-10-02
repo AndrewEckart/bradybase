@@ -3,13 +3,15 @@ import * as firebase from 'firebase/app';
 import {ProblemRecord} from '../interfaces/problemRecord.interface';
 
 export class Problem {
+  public author?: string;
   public createdAt: number;
   public createdBy: string;
   public name: string;
+  public notes?: string;
   public lastUpdated: string;
-  public records: ProblemRecord[];
+  public records?: ProblemRecord[];
   public statement: string;
-  public tags: string[];
+  public tags?: string[];
   public uid: string;
   public updatedBy: string;
 

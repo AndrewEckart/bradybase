@@ -24,7 +24,7 @@ import {
   MatSnackBarModule,
   MatSortModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {LetDirective} from './shared/directives/let/let.directive';
@@ -99,6 +99,7 @@ import { RecordFormComponent } from './problems/record-form/record-form.componen
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
+    MatTooltipModule,
     KatexModule,
     AppRoutingModule
   ],

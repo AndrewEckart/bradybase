@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/brady-base",
+    "public": "dist/bradybase",
     "ignore": [
       "firebase.json",
       "**/.*",

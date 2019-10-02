@@ -1,11 +1,8 @@
-export const CARD_WIDTH_SM = 375;
-export const CARD_WIDTH_MD = 600;
-export const CARD_WIDTH_LG = 750;
-
 export const CARD_WIDTHS = {
-  sm: CARD_WIDTH_SM,
-  md: CARD_WIDTH_MD,
-  lg: CARD_WIDTH_LG
+  xs: 375,
+  sm: 480,
+  md: 600,
+  lg: 750
 };
 
 export const toolbarHeight = 64;

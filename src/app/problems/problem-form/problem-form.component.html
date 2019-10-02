@@ -15,13 +15,25 @@
       matTextareaAutosize
       required
       formControlName="statement"
-      matAutosizeMinRows="3"
+      matAutosizeMinRows="2"
       matAutosizeMaxRows="10"
       matInput>
     </textarea>
+    <mat-hint>Supported formats: plaintext, LaTeX</mat-hint>
     <mat-error *ngIf="ctrl.hasError('required')">Problem statement is required</mat-error>
   </mat-form-field>
 
+  <mat-form-field *appLet="problemForm.controls['author'] as ctrl" appearance="fill">
+    <mat-label>Author</mat-label>
+    <input matInput type="text" formControlName="author">
+  </mat-form-field>
+
+  <mat-form-field *appLet="problemForm.controls['notes'] as ctrl" appearance="fill">
+    <mat-label>Notes</mat-label>
+    <textarea matInput matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="10"
+              formControlName="notes">
+    </textarea>
+  </mat-form-field>
 
   <mat-form-field style="width: 100%" *appLet="problemForm.controls['tags'] as ctrl" appearance="fill">
     <mat-label>Tags</mat-label>
@@ -57,7 +69,7 @@
       <div [formGroupName]="i" fxLayout="row"
            fxLayoutAlign="space-between center" fxLayoutGap="16px">
 
-        <app-record-form [formGrp]="formGrp"></app-record-form>
+        <app-record-form [formGrp]="formGrp" fxFlex="1 1 auto"></app-record-form>
 
         <button mat-button color="warn" fxFlex="0 0 64px"
                 (click)="removeRecord(i)" type="button">

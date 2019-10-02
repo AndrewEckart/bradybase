@@ -44,7 +44,9 @@ export class ProblemFormComponent implements OnInit {
 
   setupForms() {
     this.problemForm = new FormGroup({
+      author: new FormControl(''),
       name: new FormControl('', [Validators.required]),
+      notes: new FormControl(''),
       records: new FormArray([]),
       statement: new FormControl('', [Validators.required]),
       tags: new FormControl([], [])

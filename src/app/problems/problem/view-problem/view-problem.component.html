@@ -1,8 +1,24 @@
 <div fxLayout="column" fxLayoutGap="16px">
 
   <div>
-    <h3 class="mat-h3">Statement</h3>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <h3 class="mat-h3" style="margin: 0 4px 0 0">Statement</h3>
+      <button mat-button mat-icon-button color="primary"
+              (click)="copy()" matTooltip="Copy to clipboard">
+        <mat-icon>file_copy</mat-icon>
+      </button>
+    </div>
     <ng-katex-paragraph [paragraph]="problem.statement"></ng-katex-paragraph>
+  </div>
+
+  <div>
+    <h3 class="mat-h3">Author</h3>
+    <div>{{problem.author ? problem.author : 'None'}}</div>
+  </div>
+
+  <div>
+    <h3 class="mat-h3">Notes</h3>
+    <div>{{problem.notes ? problem.notes : 'None'}}</div>
   </div>
 
   <div>
