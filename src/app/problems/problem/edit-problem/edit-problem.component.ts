@@ -33,7 +33,7 @@ export class EditProblemComponent implements OnInit, AfterViewInit {
   }
 
   saveProblem() {
-    if (this.fg.pristine || this.fg.invalid) {
+    if (this.fg.invalid || _.isEqual(this.fg.value, _.pick(this.problem, _.keys(this.fg.value)))) {
       return;
     }
     _.assign(this.problem, this.fg.value);

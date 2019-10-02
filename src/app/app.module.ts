@@ -10,11 +10,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule,
+  MatCardModule,
+  MatCheckboxModule,
   MatChipsModule,
+  MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule, MatSnackBarModule, MatSortModule, MatTableModule, MatToolbarModule
+  MatInputModule,
+  MatListModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {LetDirective} from './shared/directives/let/let.directive';
@@ -40,6 +50,7 @@ import { UserPhotoComponent } from './shared/components/user-photo/user-photo.co
 import { UserPanelComponent } from './core/components/user-panel/user-panel.component';
 import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 import { ProblemFormComponent } from './problems/problem-form/problem-form.component';
+import { RecordFormComponent } from './problems/record-form/record-form.component';
 
 
 @NgModule({
@@ -61,6 +72,7 @@ import { ProblemFormComponent } from './problems/problem-form/problem-form.compo
     UserPanelComponent,
     SidenavComponent,
     ProblemFormComponent,
+    RecordFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,16 +87,18 @@ import { ProblemFormComponent } from './problems/problem-form/problem-form.compo
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatPaginatorModule,
-    MatSnackBarModule,
+    MatSelectModule,
     MatSidenavModule,
+    MatSnackBarModule,
+    MatSortModule,
     MatTableModule,
     MatToolbarModule,
-    MatSortModule,
     KatexModule,
     AppRoutingModule
   ],

@@ -1,11 +1,13 @@
 import * as _ from 'lodash';
 import * as firebase from 'firebase/app';
+import {ProblemRecord} from '../interfaces/problemRecord.interface';
 
 export class Problem {
   public createdAt: number;
   public createdBy: string;
   public name: string;
   public lastUpdated: string;
+  public records: ProblemRecord[];
   public statement: string;
   public tags: string[];
   public uid: string;

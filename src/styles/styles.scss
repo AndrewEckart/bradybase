@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can addTag global styles to this file, and also import other style files */
 @import '../../node_modules/katex/dist/katex.css';
 @import 'variables.scss';
 
@@ -16,4 +16,10 @@ body {
 .mat-chip-category {
   background-color: $uc-maroon !important;
   color: white !important;
+}
+
+mat-form-field {
+  .mat-form-field-infix {
+    width: auto;
+  }
 }

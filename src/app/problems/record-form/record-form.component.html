@@ -1,0 +1,55 @@
+<div fxLayout="column" fxFlex="1 1 auto" [formGroup]="formGrp">
+
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+
+    <mat-form-field appearance="fill" fxFlex="1 1 auto" floatLabel="always"
+                    *appLet="formGrp.controls.course as ctrl">
+      <mat-label>Course No.</mat-label>
+      <input matInput required formControlName="course" type="text" placeholder="MPCS 55001">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" fxFlex="0 0 96px"
+                    *appLet="formGrp.controls.quarter as ctrl">
+      <mat-label>Quarter</mat-label>
+      <mat-select required formControlName="quarter">
+        <mat-option *ngFor="let season of seasons" [value]="season">
+          {{season}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" fxFlex="0 0 80px" floatLabel="always"
+                    *appLet="formGrp.controls.year as ctrl">
+      <mat-label>Year</mat-label>
+      <input matInput required formControlName="year"
+             type="number" min="1990" [max]="maxYear">
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+
+    <mat-form-field appearance="fill" fxFlex="1 1 auto"
+                    *appLet="formGrp.controls.type as ctrl">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" fxFlex="0 0 96px" floatLabel="always"
+                    *appLet="formGrp.controls.typeNumber as ctrl">
+      <mat-label>Type No.</mat-label>
+      <input matInput formControlName="typeNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" fxFlex="0 0 80px" floatLabel="always"
+                    *appLet="formGrp.controls.problemNumber as ctrl">
+      <mat-label>Problem No.</mat-label>
+      <input matInput formControlName="problemNumber">
+    </mat-form-field>
+
+  </div>
+
+</div>

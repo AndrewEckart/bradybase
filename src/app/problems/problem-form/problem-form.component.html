@@ -28,7 +28,7 @@
     <mat-chip-list #chipList formControlName="tags" >
       <mat-chip *ngFor="let tag of ctrl.value" [selectable]="false"
                 color="primary" class="mat-chip-category"
-                [removable]="true" (removed)="remove(tag)">
+                [removable]="true" (removed)="removeTag(tag)">
         {{tag}}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
@@ -38,13 +38,51 @@
              [matChipInputFor]="chipList"
              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
              [matChipInputAddOnBlur]="addOnBlur"
-             (matChipInputTokenEnd)="add($event)">
+             (matChipInputTokenEnd)="addTag($event)">
     </mat-chip-list>
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedTag($event)">
       <mat-option *ngFor="let tag of filtered" [value]="tag">
         {{tag}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+
+  <section>
+
+    <mat-card-subtitle>History</mat-card-subtitle>
+
+    <div formArrayName="records" *ngFor="let formGrp of recordArray.controls; let i = index"
+         fxLayout="column" fxLayoutAlign="start stretch">
+
+      <div [formGroupName]="i" fxLayout="row"
+           fxLayoutAlign="space-between center" fxLayoutGap="16px">
+
+        <app-record-form [formGrp]="formGrp"></app-record-form>
+
+        <button mat-button color="warn" fxFlex="0 0 64px"
+                (click)="removeRecord(i)" type="button">
+          <mat-icon>close</mat-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</form>
+
+<form [formGroup]="newRecordForm" (ngSubmit)="addRecord()" fxLayout="column">
+
+  <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+
+    <app-record-form [formGrp]="newRecordForm" style="width: 100%"></app-record-form>
+
+    <button mat-raised-button color="primary" fxFlex="0 0 64px"
+            [disabled]="newRecordForm.invalid" type="submit">
+      ADD
+    </button>
+
+  </div>
 
 </form>
