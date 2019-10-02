@@ -1,0 +1,24 @@
+<div fxLayout="column" fxLayoutGap="16px">
+
+  <button mat-raised-button color="primary" (click)="goToList()"
+          fxFlexAlign="start" fxFlex="0 0 auto" >SEE ALL</button>
+
+  <app-card *ngIf="problem$ | async as problem">
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-bottom: 16px;">
+      <mat-card-title style="margin-bottom: 0">{{editMode ? 'Edit problem' : problem.name}}</mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button mat-icon-button color="primary"
+                (click)="toggleEditMode()"
+                [disabled]="editMode && !!editCmp && editCmp.fg?.invalid">
+          <mat-icon *ngIf="editMode">check</mat-icon>
+          <mat-icon *ngIf="!editMode">mode_edit</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <mat-card-content fxLayout="column">
+      <app-edit-problem *ngIf="editMode" [problem]="problem"></app-edit-problem>
+      <app-view-problem *ngIf="!editMode" [problem]="problem"></app-view-problem>
+    </mat-card-content>
+  </app-card>
+</div>

@@ -5,6 +5,8 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {debounceTime, distinctUntilChanged, takeUntil} from 'rxjs/operators';
 import {AsyncComponent} from '../../shared/components/async/async.component';
 import {BehaviorSubject} from 'rxjs';
+import {DatabaseService} from '../../core/services/database/database.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-problems-list',
@@ -17,8 +19,8 @@ export class ProblemsListComponent extends AsyncComponent implements OnInit, Aft
 
   private filter$ = new BehaviorSubject<string>('');
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   private displayedColumns: string[] = ['select', 'name'];
 
@@ -26,19 +28,30 @@ export class ProblemsListComponent extends AsyncComponent implements OnInit, Aft
     return problem.name.toLowerCase().includes(filter.toLowerCase());
   }
 
-  constructor() {
+  constructor(
+    private db: DatabaseService,
+    private router: Router
+) {
     super();
   }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Problem>();
     this.dataSource.filterPredicate = ProblemsListComponent.createFilter;
+    this.observeProblems();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.observeFilter();
+  }
+
+  observeProblems() {
+    this.db.list('problems', Problem).pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((problems: Problem[]) => {
+        this.dataSource.data = problems;
+      });
   }
 
   observeFilter() {
@@ -51,7 +64,7 @@ export class ProblemsListComponent extends AsyncComponent implements OnInit, Aft
         return;
       }
       this.dataSource.filter = value;
-    })
+    });
   }
 
   isAllSelected() {
@@ -64,6 +77,10 @@ export class ProblemsListComponent extends AsyncComponent implements OnInit, Aft
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  create() {
+    this.router.navigate(['/app/create']);
   }
 
 

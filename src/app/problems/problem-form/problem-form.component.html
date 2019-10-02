@@ -1,0 +1,50 @@
+<form [formGroup]="problemForm" fxLayout="column" fxLayoutGap="8px">
+  <mat-form-field *appLet="problemForm.controls['name'] as ctrl" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput
+           type="text"
+           formControlName="name"
+           required>
+    <mat-error *ngIf="ctrl.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *appLet="problemForm.controls['statement'] as ctrl" appearance="fill">
+    <mat-label>Statement</mat-label>
+    <textarea
+      [placeholder]="placeholders.statement"
+      matTextareaAutosize
+      required
+      formControlName="statement"
+      matAutosizeMinRows="3"
+      matAutosizeMaxRows="10"
+      matInput>
+    </textarea>
+    <mat-error *ngIf="ctrl.hasError('required')">Problem statement is required</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field style="width: 100%" *appLet="problemForm.controls['tags'] as ctrl" appearance="fill">
+    <mat-label>Tags</mat-label>
+    <mat-chip-list #chipList formControlName="tags" >
+      <mat-chip *ngFor="let tag of ctrl.value" [selectable]="false"
+                color="primary" class="mat-chip-category"
+                [removable]="true" (removed)="remove(tag)">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input #tagInput
+             (input)="filterTags()"
+             [matAutocomplete]="auto"
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let tag of filtered" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>

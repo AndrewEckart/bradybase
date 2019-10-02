@@ -92,9 +92,3 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 // that you are using.
 @include angular-material-theme($app-theme);
 
-
-.mat-chip-category {
-  background-color: #800000 !important;
-  color: #D6D6CE !important;
-}
-

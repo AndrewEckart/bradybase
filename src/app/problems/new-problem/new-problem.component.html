@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Create new problem</mat-card-title>
+
+  <mat-card-content fxLayout="column">
+    <app-problem-form #form></app-problem-form>
+
+    <mat-card-actions fxLayout="row" fxLayoutAlign="center" fxLayoutGap="16px">
+      <button mat-raised-button (click)="cancel()">CANCEL</button>
+      <button mat-raised-button color="primary"
+              [disabled]="form.problemForm.invalid"
+              (click)="save(form.problemForm)">
+        SAVE
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

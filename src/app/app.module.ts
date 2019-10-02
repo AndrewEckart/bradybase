@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProblemComponent } from './problem/problem/problem.component';
-import { ViewProblemComponent } from './problem/problem/view-problem/view-problem.component';
-import { EditProblemComponent } from './problem/problem/edit-problem/edit-problem.component';
+import { ProblemComponent } from './problems/problem/problem.component';
+import { ViewProblemComponent } from './problems/problem/view-problem/view-problem.component';
+import { EditProblemComponent } from './problems/problem/edit-problem/edit-problem.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -25,8 +25,8 @@ import { LoginComponent } from './core/components/login/login.component';
 import {AuthService} from './core/services/auth/auth.service';
 import {AuthGuard} from './core/guards/auth/auth.guard';
 import { HeaderComponent } from './core/components/header/header.component';
-import { NewProblemComponent } from './problem/new-problem/new-problem.component';
-import { ProblemsListComponent } from './problem/problems-list/problems-list.component';
+import { NewProblemComponent } from './problems/new-problem/new-problem.component';
+import { ProblemsListComponent } from './problems/problems-list/problems-list.component';
 import {AppRoutingModule} from './app-routing.module';
 import { SplashComponent } from './core/components/splash/splash.component';
 import {AngularFireModule} from '@angular/fire';
@@ -39,6 +39,7 @@ import {SidenavService} from './core/services/sidenav/sidenav.service';
 import { UserPhotoComponent } from './shared/components/user-photo/user-photo.component';
 import { UserPanelComponent } from './core/components/user-panel/user-panel.component';
 import { SidenavComponent } from './core/components/sidenav/sidenav.component';
+import { ProblemFormComponent } from './problems/problem-form/problem-form.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { SidenavComponent } from './core/components/sidenav/sidenav.component';
     UserPhotoComponent,
     UserPanelComponent,
     SidenavComponent,
+    ProblemFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {NewProblemComponent} from './problem/new-problem/new-problem.component';
+import {NewProblemComponent} from './problems/new-problem/new-problem.component';
 import {AuthGuard} from './core/guards/auth/auth.guard';
-import {ProblemsListComponent} from './problem/problems-list/problems-list.component';
-import {ProblemComponent} from './problem/problem/problem.component';
+import {ProblemsListComponent} from './problems/problems-list/problems-list.component';
+import {ProblemComponent} from './problems/problem/problem.component';
 import {SplashComponent} from './core/components/splash/splash.component';
 import {HomeComponent} from './core/components/home/home.component';
 
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     children: [
       { path: 'create', component: NewProblemComponent},
       { path: 'problems', component: ProblemsListComponent},
-      { path: 'problem/:id', component: ProblemComponent}
+      { path: 'problems/:id', component: ProblemComponent}
     ]
   }
 

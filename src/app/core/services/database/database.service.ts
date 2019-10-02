@@ -13,7 +13,7 @@ export class DatabaseService {
       return null;
     }
     const val: T = action.payload.val();
-    return new constructor(Object.assign({$key: action.payload.key}, val));
+    return new constructor(Object.assign({uid: action.payload.key}, val));
   }
 
   static mapSnapshotActionsToObjects<T>(actions: SnapshotAction<T>[], constructor: BBConstructor<T>): T[] {
@@ -23,7 +23,7 @@ export class DatabaseService {
   constructor(private db: AngularFireDatabase) {
   }
 
-  list<T>(path: string, constructor: BBConstructor<T>, queryFn?: QueryFn, events?: ChildEvent[]) {
+  list<T>(path: string, constructor: BBConstructor<T>, queryFn?: QueryFn, events?: ChildEvent[]): Observable<T[]> {
     const list = queryFn ? this.db.list(path, queryFn) : this.db.list(path);
     const obs = !!events ? list.snapshotChanges(events) : list.snapshotChanges();
     return obs.pipe(
@@ -41,6 +41,14 @@ export class DatabaseService {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  update(path: string, data: any) {
+    return this.db.object(path).update(data);
+  }
+
+  push(path: string, value: any) {
+    return this.db.list(path).push(value);
   }
 
 }
