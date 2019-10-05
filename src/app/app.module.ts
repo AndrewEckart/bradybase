@@ -17,7 +17,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatPaginatorModule,
   MatSelectModule,
   MatSidenavModule,
@@ -51,6 +51,7 @@ import { UserPanelComponent } from './core/components/user-panel/user-panel.comp
 import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 import { ProblemFormComponent } from './problems/problem-form/problem-form.component';
 import { RecordFormComponent } from './problems/record-form/record-form.component';
+import {I18nPluralPipe} from '@angular/common';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { RecordFormComponent } from './problems/record-form/record-form.componen
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatMenuModule,
     MatPaginatorModule,
     MatSelectModule,
     MatSidenavModule,
@@ -107,7 +109,8 @@ import { RecordFormComponent } from './problems/record-form/record-form.componen
     AuthService,
     AuthGuard,
     DatabaseService,
-    SidenavService
+    SidenavService,
+    I18nPluralPipe
   ],
   bootstrap: [AppComponent]
 })

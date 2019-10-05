@@ -37,10 +37,7 @@ export class DatabaseService {
   }
 
   set(path: string, value: any) {
-    this.db.object(path).set(value)
-      .catch((error) => {
-        console.error(error);
-      });
+    return this.db.object(path).set(value);
   }
 
   update(path: string, data: any) {
